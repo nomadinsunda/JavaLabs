@@ -7,15 +7,15 @@ import java.sql.*;
  <dependency>
     <groupId>com.mysql</groupId>
     <artifactId>mysql-connector-j</artifactId>
-    <version>8.4.0</version>
+    <version>8.3.0</version>
  </dependency>
 
- * IDE를 쓴다면 Build Path에 포함시켜야 함
+ * Java Project를 IDE에서 사용하고 있다면, Build Path에 포함시켜야 함
 	Eclipse:
 	Package Explorer에서 
-	   해당 프로젝트 우클릭 → Properties → Java Build Path → Libraries 탭 선택
-	   Add External JARs... 클릭
-	   mysql-connector-java-8.4.0.jar 선택 후 OK
+	   1. 해당 프로젝트 우클릭 → Properties → Java Build Path → Libraries 탭 선택.
+	   2. Add External JARs 버튼 클릭.
+	   3. .m2 디렉토리에서 mysql-connector-java-8.3.0.jar 선택 후 OK
  */
 public class CoffeesTableExample {
 
