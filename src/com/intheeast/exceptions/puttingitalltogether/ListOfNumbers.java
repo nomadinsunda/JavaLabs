@@ -25,6 +25,8 @@ public class ListOfNumbers {
         try {
             System.out.println("Entering try statement");
 
+            // FileWriter는 존재하지 않는 파일명이 전달하면,
+            // 만든다!
             out = new PrintWriter(new FileWriter("/OutFile.txt"));
             
             for (int i = 0; i < SIZE; i++) {

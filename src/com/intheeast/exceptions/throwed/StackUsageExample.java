@@ -28,10 +28,12 @@ public class StackUsageExample {
 
         // 빈 스택에서 pop 시도 (예외 발생)
         System.out.println("=== 예외 테스트 ===");
-        try {
+        // EmptyStackException은 RuntimeException을 상속하였기 때문에
+        // Unchecked Exception. 그러므로 컴파일러가 예외 처리 코드 구현을 강제하지 않음
+        //try {
             stack.pop();  // 여기서 EmptyStackException 발생
-        } catch (EmptyStackException e) {
+        //} catch (EmptyStackException e) {
             System.err.println("오류 발생: 스택이 비어 있습니다.");
-        }
+        //}
     }
 }

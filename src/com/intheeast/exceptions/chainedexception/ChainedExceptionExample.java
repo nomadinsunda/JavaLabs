@@ -44,7 +44,8 @@ public class ChainedExceptionExample {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
-            IllegalArgumentException wrapped = new IllegalArgumentException("숫자 변환 실패: [" + input + "]");
+            IllegalArgumentException wrapped = 
+            		new IllegalArgumentException("숫자 변환 실패: [" + input + "]");
             wrapped.initCause(e);
             throw wrapped;
         }
