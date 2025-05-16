@@ -14,17 +14,20 @@ import java.sql.*;
 	Eclipse:
 	Package Explorer에서 
 	   1. 해당 프로젝트 우클릭 → Properties → Java Build Path → Libraries 탭 선택.
-	   2. Add External JARs 버튼 클릭.
-	   3. .m2 디렉토리에서 mysql-connector-java-8.3.0.jar 선택 후 OK
+	   2. classpath 아이템 선택 후,
+	   3. Add External JARs 버튼 클릭.
+	   4. .m2 디렉토리에서 mysql-connector-java-8.3.0.jar 선택 후 OK
  */
 public class CoffeesTableExample {
 
     public static void main(String[] args) {
-        String jdbcURL = "jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC";
+        String jdbcURL = 
+        		"jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC";
         String username = "root";
         String password = "1234";
 
-        try (Connection con = DriverManager.getConnection(jdbcURL, username, password)) {
+        try (Connection con = 
+        		DriverManager.getConnection(jdbcURL, username, password)) {
             System.out.println("데이터베이스 연결 성공!");
 
             // 1. COFFEES 테이블이 없으면 생성
@@ -60,9 +63,12 @@ public class CoffeesTableExample {
     }
 
     // COFFEES 테이블 데이터 삽입 (없을 때만)
-    public static void insertSampleDataIfNotExists(Connection con) throws SQLException {
-        String countQuery = "SELECT COUNT(*) FROM COFFEES";
+    public static void insertSampleDataIfNotExists(Connection con) 
+    		throws SQLException {
+//        String countQuery = "SELECT COUNT(*) FROM COFFEES";
+        String countQuery = "SELECT COUNT(*) FROM HONGCHA";
 
+        // 다음 try는 단지 try with resourece일 뿐...
         try (Statement stmt = con.createStatement();
              ResultSet rs = stmt.executeQuery(countQuery)) {
 
@@ -79,12 +85,17 @@ public class CoffeesTableExample {
                     ('Colombian_Decaf', 101, 8.99, 0, 0),
                     ('French_Roast_Decaf', 49, 9.99, 0, 0)
                     """;
+                
                 stmt.executeUpdate(insertSQL);
+                
                 System.out.println("샘플 데이터 삽입 완료");
             } else {
                 System.out.println("이미 데이터가 존재합니다 (삽입 생략)");
             }
-        }
+        } 
+//        catch (SQLException e) {
+//        	System.out.println("SQLException:" + e.getMessage());
+//        }
     }
 
     // COFFEES 테이블 조회

@@ -4,8 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FileReadFinallyExample {
+	public static final int SIZE = 10;
+	private List<String> list = new ArrayList<>();
+	
+	
 
     // finally 블록으로 close 처리하는 메서드
     static String readFirstLineFromFileWithFinallyBlock(String path) throws IOException {

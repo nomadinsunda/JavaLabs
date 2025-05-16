@@ -9,11 +9,31 @@ public class FileReadExample {
 	
 	
 
-    public static String readFirstLineFromFile(String path) throws IOException {
-        try (FileReader fr = new FileReader(path);
+    public static String readFirstLineFromFile(String path) 
+    		throws IOException {
+        
+    	try (FileReader fr = new FileReader(path);
              BufferedReader br = new BufferedReader(fr)) {
-            return br.readLine();
+        	 // fr.close();// 필수인데..안 해도 됨-> try with resource statement
+             // br.close();
+    		return br.readLine();            
         }
+//    	String ret = null;
+//    	FileReader fr = null;
+//    	BufferedReader br = null;
+//    	try {
+//    		fr = new FileReader(path);
+//    		br = new BufferedReader(fr);
+//    		ret = br.readLine();
+//    	} catch (IOException e) {
+//    		System.out.println(e.getMessage());
+//    	} finally {
+//    		fr.close();
+//    		br.close();    		
+//    	}
+//    	
+//    	return ret;
+    	
     }
     
 //    public static void xxx(String[] args) {
@@ -45,6 +65,8 @@ public class FileReadExample {
         } catch (IOException e) {
             System.err.println("파일 생성 중 오류: " + e.getMessage());
             return;
+        } finally {
+        	// ...
         }
 
         // 2. 첫 번째 줄 읽기 및 출력
