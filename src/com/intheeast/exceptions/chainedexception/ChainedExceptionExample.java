@@ -9,8 +9,18 @@ public class ChainedExceptionExample {
         try {
             processFile("input.txt");
         } catch (RuntimeException e) {
+        	
             System.err.println("최종 예외 발생: " + e);
             Throwable cause = e.getCause();
+            
+            StackTraceElement elements[] = cause.getStackTrace();
+            for (int i = 0, n = elements.length; i < n; i++) {       
+                System.err.println(elements[i].getFileName()
+                    + ":" + elements[i].getLineNumber() 
+                    + ">> "
+                    + elements[i].getMethodName() + "()");
+            }
+            
             while (cause != null) {
                 System.err.println("원인: " + cause);
                 cause = cause.getCause();
@@ -44,6 +54,14 @@ public class ChainedExceptionExample {
         try {
             return Integer.parseInt(input);
         } catch (NumberFormatException e) {
+        	StackTraceElement[] elements = e.getStackTrace();
+        	for (int i = 0, n = elements.length; i < n; i++) {       
+                System.err.println(elements[i].getFileName()
+                    + ":" + elements[i].getLineNumber() 
+                    + ">> "
+                    + elements[i].getMethodName() + "()");
+            }
+        	
             IllegalArgumentException wrapped = 
             		new IllegalArgumentException("숫자 변환 실패: [" + input + "]");
             wrapped.initCause(e);
