@@ -14,26 +14,8 @@ public class ArrayListImpl {
 		c.add("1");
 		c.add("2");
 		c.add("1");
-		/*
-		 // wildcard upper bounding : Type Argument 제한...
-		 public ArrayList(Collection<? extends E> c) {
-	        Object[] a = c.toArray();
-	        if ((size = a.length) != 0) {
-	            if (c.getClass() == ArrayList.class) {
-	                elementData = a;
-	            } else {
-	                elementData = Arrays.copyOf(a, size, Object[].class);
-	            }
-	        } else {
-	            // replace with empty array.
-	            elementData = EMPTY_ELEMENTDATA;
-	        }
-	    }
-		 */
-		List<String> list = new ArrayList<>(c);
 		
-		
-		
+		List<String> list = new ArrayList<>(c);		
 	}
 	
 	public static void main(String[] args) {
