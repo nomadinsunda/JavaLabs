@@ -4,14 +4,27 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import static java.lang.System.out;
 
+// private static final ENUM$VALUES에는 
+// Spy(BLACK, 0) -> 인스턴스
+// Spy(WHITE, 1) -> 인스턴스
+// 위 두 개의 인스턴스를 저장하는 배열
 enum Spy { BLACK , WHITE }
 
 public class FieldModifierSpy {
     volatile int share;
-    int instance;
-    class Inner {}
+    public int instance;
+    private transient static final Inner inner = null;
+    
+    class Inner {
+    	
+    	public Inner() {
+    		System.out.println("Outer Class:" + 
+    					FieldModifierSpy.this);
+    	}
+    }
 
     public static void main(String... args) {
+    	
 		try {
 		    Class<?> c = Class.forName(args[0]);
 		    int searchMods = 0x0;

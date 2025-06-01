@@ -1,11 +1,19 @@
 package com.intheeast.reflection.classes.retrievingclassobjects;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 
 public class MethodsthatReturnClasses {
 	
+	public interface hello {
+		public void helloWorld();
+	}
+	
 	public static void main(String[] args) {
 		// 주어진 클래스의 슈퍼 클래스를 리턴.
+//		Class clazz = java.lang.String.class;
+//		Class clazz2 = clazz.getSuperclass();
+		
 		Class c1 = java.lang.String.class.getSuperclass();
 		
 		Class<?>[] cs = Character.class.getClasses();
@@ -17,6 +25,7 @@ public class MethodsthatReturnClasses {
 		    System.out.println(clazz.getTypeName());
 		
 		try {
+			//Modifier.PUBLIC;
 			Field f = System.class.getField("out");
 			Class c = f.getDeclaringClass();
 			int a = 0;
@@ -31,6 +40,7 @@ public class MethodsthatReturnClasses {
 		System.out.println(MyClass.c);
 		
 		Class c = Thread.State.class.getEnclosingClass();
+		
 		
 		return ;
 	}

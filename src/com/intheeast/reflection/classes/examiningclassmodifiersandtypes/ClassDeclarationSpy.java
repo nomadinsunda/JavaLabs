@@ -8,16 +8,20 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentNavigableMap;
+import java.util.function.Consumer;
 
 import static java.lang.System.out;
 
 public class ClassDeclarationSpy {
 	
     public static void main(String... args) {
-    	
+    	Consumer cs;
+    	ArrayList al;
     	ConcurrentNavigableMap cnm;
     	String s;
 		try {
+			
+			// 현재 기저 클래스 : java.util.ArrayList
 		    Class<?> c = Class.forName(args[0]);
 		    /* <getCanonicalName 메서드>
 		     기저 클래스(Class 객체가 참조하고 있는 실제 자바 클래스)의 정규 이름(canonical name)을 
@@ -81,6 +85,7 @@ public class ClassDeclarationSpy {
 		}
     }
 
+    
     private static void printAncestor(Class<?> c, List<Class> l) {
 		Class<?> ancestor = c.getSuperclass();
 	 	if (ancestor != null) {
