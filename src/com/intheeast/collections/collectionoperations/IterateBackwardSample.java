@@ -9,7 +9,8 @@ public class IterateBackwardSample {
     public static void main(String[] args) {
     	
     	// java.util.Arrays$ArrayList
-        List<String> list = Arrays.asList("apple", "banana", "cherry");
+        List<String> list = Arrays.asList("apple", "banana", 
+        		"cherry", "graphe");
         
         // java.util.ArrayList
         List<String> lists = new ArrayList<>(list);
@@ -21,7 +22,9 @@ public class IterateBackwardSample {
         for (ListIterator<String> it = 
         		list.listIterator(list.size()); it.hasPrevious(); ) {
             String t = it.previous();
-            System.out.println(t);
+            Integer prvIndex = it.previousIndex();
+            System.out.println("Element:" + t);
+            System.out.println("Previous Index:" + prvIndex);
         }
     }
 }
