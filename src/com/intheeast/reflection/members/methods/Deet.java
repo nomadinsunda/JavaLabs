@@ -9,6 +9,7 @@ import static java.lang.System.out;
 import static java.lang.System.err;
 
 public class Deet<T> {
+	
     private boolean testDeet(Locale l) {
 		// getISO3Language() may throw a MissingResourceException
 		out.format("Locale = %s, ISO Language Code = %s%n", l.getDisplayName(), l.getISO3Language());
@@ -16,8 +17,13 @@ public class Deet<T> {
     }
 
     private int testFoo(Locale l) { return 0; }
+    
     private boolean testBar() { return true; }
 
+    // arg0 :com.intheeast.reflection.members.methods.Deet
+    // arg1 :ja
+    // arg2 :JP
+    // arg3 :JP
     public static void main(String... args) throws IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
 		if (args.length != 4) {
 		    err.format("Usage: java Deet <classname> <langauge> <country> <variant>%n");
@@ -29,7 +35,8 @@ public class Deet<T> {
 		    //Object target = c.getDeclaredConstructor().newInstance();
 		    Constructor<?> ctor = c.getDeclaredConstructor();
 	        ctor.setAccessible(true);  // private 생성자에도 접근 가능
-	        Object target = ctor.newInstance();
+	        // Deet deet = new Deet();
+	        Object target = ctor.newInstance(); // Deet 클래스 객체의 인스턴스를 생성
 	
 		    Method[] allMethods = c.getDeclaredMethods();
 		    for (Method m : allMethods) {
@@ -38,7 +45,9 @@ public class Deet<T> {
 				    || (m.getGenericReturnType() != boolean.class)) {
 				    continue;
 				}
+				
 		 		Type[] pType = m.getGenericParameterTypes();
+		 		//boolean is = Locale.class.isAssignableFrom(pType[0].getClass());
 		 		if ((pType.length != 1)
 		 			// public boolean isAssignableFrom(Class<?> cls)
 		 			// cls 타입의 객체를 현재 Class(Locale) 객체 타입으로 변환할 수 있는가?

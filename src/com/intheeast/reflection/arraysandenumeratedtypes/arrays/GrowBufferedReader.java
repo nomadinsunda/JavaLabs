@@ -9,7 +9,7 @@ import java.util.Arrays;
 import static java.lang.System.out;
 
 public class GrowBufferedReader {
-    private static final int srcBufSize = 10 * 1024;
+    private static final int srcBufSize = 10 * 1024; // 10240 byte
     private static char[] src = new char[srcBufSize];
     static {
     	src[srcBufSize - 1] = 'x';
@@ -21,7 +21,7 @@ public class GrowBufferedReader {
 	    try {
 	    	/*
 	    	 BufferedReader는 생성될 때 자체적으로 고정 크기의 버퍼(cb)를 새로 생성.
-			 이 크기는 BufferedReader의 디폴트 버퍼 크기인 8192(= 8KB).
+			 이 크기는 BufferedReader의 디폴트 버퍼 크기인 8192(= 8KB) 바이트.
 			 즉, car가 아무리 큰 char[]을 기반으로 만들어졌더라도,
 			 BufferedReader는 내부적으로 별도의 자체 버퍼를 관리하며, 
 			 이 버퍼의 크기는 디폴트로 8192임.
@@ -39,8 +39,12 @@ public class GrowBufferedReader {
 	        if (args.length > 0 && args[0].equals("grow"))
 	        	f.set(br, newVal);
 	
-	        for (int i = 0; i < srcBufSize; i++)
+	        for (int i = 0; i < srcBufSize; i++) {
+	        	// 이제부터 src 배열의 값을 읽어서 
+	        	// BufferedReader의 cb에 저장함!!!
 	        	br.read();
+	        	
+	        }
 	
 	        // 새로운 백업 배열이 사용되고 있는지 확인합니다.
 	        if (newVal[srcBufSize - 1] == src[srcBufSize - 1])

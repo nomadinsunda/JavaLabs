@@ -4,8 +4,14 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 import static java.lang.System.out;
 
+import java.io.PrintStream;
+
 public class MethodSpy {
     private static final String  fmt = "%24s: %s%n";
+    
+    static {
+    	PrintStream ps;
+    }
 
     // for the morbidly curious
     <E extends RuntimeException> void genericThrow() throws E {}

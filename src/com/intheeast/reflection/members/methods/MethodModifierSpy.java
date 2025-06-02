@@ -12,6 +12,7 @@ public class MethodModifierSpy {
 
     public static void main(String... args) {
 		try {
+			Object obj;
 		    Class<?> c = Class.forName(args[0]);
 		    Method[] allMethods = c.getDeclaredMethods();
 		    for (Method m : allMethods) {

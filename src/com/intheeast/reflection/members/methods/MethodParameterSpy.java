@@ -5,11 +5,14 @@ import java.util.function.*;
 import static java.lang.System.out;
 
 public class MethodParameterSpy {
+	Level lv;
     
     private static final String  fmt = "%24s: %s%n";
 
     // for the morbidly curious
-    <E extends RuntimeException> void genericThrow() throws E {}
+    <E extends RuntimeException> void genericThrow() throws E {
+    	
+    }
     
     public static void printClassConstructors(Class c) {
         Constructor[] allConstructors = c.getConstructors();
@@ -62,7 +65,14 @@ public class MethodParameterSpy {
         out.format(fmt, "Is synthetic?", p.isSynthetic());
     }
     
-    public static void main(String... args) {        
+    public static void main(String... args) {
+    	// 현재 코드상에서는 처음으로 특정 enum 상수가 필요함
+    	// 이 때 모든 enum 상수가 만들어짐.
+    	Level[] levels = Level.values();
+    	Level level = Level.valueOf("BASIC"); 
+    	Level silver = Level.valueOf(Level.class, "SILVER");    	
+    	Level basic = Level.BASIC;
+    	Level what = Level.valueOf(2); 
 
         try {
             printClassConstructors(Class.forName(args[0]));

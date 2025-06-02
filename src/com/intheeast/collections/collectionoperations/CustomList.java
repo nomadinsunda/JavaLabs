@@ -33,8 +33,8 @@ public class CustomList<E> extends ArrayList<E> {
     	// 아래의 iterable 인터페이스를 구현체의 메서드를 직접 호출해서 사용
     	// (raw한 방식...)
         for (ListIterator<E> it = listIterator(); it.hasNext(); ) {
-        	// e.equals에 문제가 발생하지 않을까 싶지만,
-        	// 현재 비교 대상이 동일성으로도 충분하기 때문에...
+        	// e.equals(e는 Object이기 때문에)에 문제가 발생하지 않을까 싶지만,
+        	// 이 equals 메서드는 String의 equals 메서드가 호출됨.
             if (e == null ? it.next() == null : e.equals(it.next())) {
                 return it.previousIndex();
             }
@@ -56,27 +56,3 @@ public class CustomList<E> extends ArrayList<E> {
         System.out.println("Index of 'fig': " + list.indexOf("fig"));       // 출력: Index of 'fig': -1
     }
 }
-
-//public class CustomList extends ArrayList<String> {
-//    public int indexOf(String e) {
-//        for (ListIterator<String> it = listIterator(); it.hasNext(); ) {
-//            if (e == null ? it.next() == null : e.equals(it.next())) {
-//                return it.previousIndex();
-//            }
-//        }
-//        // Element not found
-//        return -1;
-//    }
-//
-//    public static void main(String[] args) {
-//        CustomList list = new CustomList();
-//        list.add("apple");
-//        list.add("banana");
-//        list.add("cherry");
-//        list.add("date");
-//
-//        System.out.println("Index of 'banana': " + list.indexOf("banana")); // 출력: Index of 'banana': 1
-//        System.out.println("Index of 'cherry': " + list.indexOf("cherry")); // 출력: Index of 'cherry': 2
-//        System.out.println("Index of 'fig': " + list.indexOf("fig"));       // 출력: Index of 'fig': -1
-//    }
-//}
