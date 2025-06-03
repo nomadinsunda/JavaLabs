@@ -1,4 +1,4 @@
-package com.intheeast.reflection.constructors;
+package com.intheeast.reflection.members.constructors;
 
 import java.io.Console;
 import java.nio.charset.Charset;

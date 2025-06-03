@@ -1,4 +1,4 @@
-package com.intheeast.reflection.constructors;
+package com.intheeast.reflection.members.constructors;
 
 public class Foo {
 
