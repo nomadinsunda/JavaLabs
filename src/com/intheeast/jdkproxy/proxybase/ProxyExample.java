@@ -9,10 +9,12 @@ public class ProxyExample {
         // 클래스 로더
         ClassLoader classLoader = ProxyExample.class.getClassLoader();
 
+        // <Proxy.newProxyInstance>
         // 프록시 생성 - 인터페이스 순서: FirstInterface, SecondInterface
-        // 지정된 인터페이스들을 구현한 프록시 인스턴스를 리턴함.
+        // 지정된 인터페이스들[FirstInterface.class, SecondInterface.class]을 
+        // 구현한 프록시 인스턴스를 리턴함.
         // 이 프록시 인스턴스는 지정된 인터페이스의 메서드 호출을,
-        // 지정된 invocation handler에게
+        // 지정된 invocation handler[MyInvocationHandler]에게
         // 디스패치함.
         Object proxy1 = Proxy.newProxyInstance(
                 classLoader,

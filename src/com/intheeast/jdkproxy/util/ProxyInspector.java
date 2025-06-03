@@ -26,6 +26,18 @@ public final class ProxyInspector {
         System.out.println("🧠 [Proxy.isProxyClass 여부]");
         System.out.println("    → " + (isProxyClass ? "✅ 다이나믹 프록시 클래스입니다." : "❌ 일반 클래스입니다."));
 
+        // InvocationHandler 정보 출력
+        if (isProxyClass) {
+            try {
+                InvocationHandler handler = Proxy.getInvocationHandler(proxy);
+                System.out.println("\n🎯 [InvocationHandler 정보]");
+                System.out.println("    → 클래스: " + handler.getClass().getName());
+                System.out.println("    → toString(): " + handler);
+            } catch (IllegalArgumentException e) {
+                System.out.println("    → ❌ InvocationHandler를 가져올 수 없습니다: " + e.getMessage());
+            }
+        }
+
         // final, abstract 여부
         int modifiers = clazz.getModifiers();
         System.out.println("\n🔐 [클래스 final / abstract 확인]");
