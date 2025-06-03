@@ -1,22 +1,8 @@
-package com.intheeast.jdkproxy;
+package com.intheeast.jdkproxy.proxybase;
 
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 import com.intheeast.jdkproxy.util.ProxyInspector;
-
-
-
-// InvocationHandler 구현
-/*
- InvocationHandler is the interface implemented by the invocation handler of a proxy instance. 
- Each proxy instance has an associated invocation handler.
- When a method is invoked on a proxy instance, 
- the method invocation is encoded and 
- dispatched to the invoke method of its invocation handler.
-*/
-
 
 public class ProxyExample {
     public static void main(String[] args) {

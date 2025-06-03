@@ -1,4 +1,4 @@
-package com.intheeast.jdkproxy;
+package com.intheeast.jdkproxy.greet;
 
 public interface Greeting {
     default void sayHello() {

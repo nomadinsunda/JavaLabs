@@ -1,4 +1,4 @@
-package com.intheeast.jdkproxy;
+package com.intheeast.jdkproxy.proxybase;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package com.intheeast.jdkproxy;
+package com.intheeast.jdkproxy.greet;
 
 import java.lang.reflect.*;
 

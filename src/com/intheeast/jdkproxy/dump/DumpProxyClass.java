@@ -1,4 +1,4 @@
-package com.intheeast.jdkproxy;
+package com.intheeast.jdkproxy.dump;
 
 //import sun.misc.ProxyGenerator;
 import java.io.*;
