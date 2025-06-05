@@ -15,11 +15,17 @@ public class TimeLoggingHandler implements InvocationHandler {
 	 public TimeLoggingHandler(Object target) {
 	     this.target = target;
 	 }
+	 
+	 private ZonedDateTime printZoneDateTime(Method method) {
+		 ZonedDateTime now = ZonedDateTime.now();
+         System.out.printf("🕒 [%s] 메서드 호출됨: %s()%n", now, method.getName());
+         return now;
+	 }
 	
 	 @Override
      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-         ZonedDateTime now = ZonedDateTime.now();
-         System.out.printf("🕒 [%s] 메서드 호출됨: %s()%n", now, method.getName());
+		 
+		 ZonedDateTime now = printZoneDateTime(method);
 
          Object result = method.invoke(target, args);
 

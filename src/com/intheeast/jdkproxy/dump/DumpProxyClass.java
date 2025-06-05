@@ -9,6 +9,7 @@ public class DumpProxyClass {
     }
 
     public static void main(String[] args) throws Exception {
+    	// JDK 19 Version에서 사용 가능함...
 //        byte[] classData = ProxyGenerator.generateProxyClass(
 //            "MyProxyClass",
 //            new Class[]{Hello.class}

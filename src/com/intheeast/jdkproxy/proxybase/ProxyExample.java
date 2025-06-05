@@ -18,6 +18,7 @@ public class ProxyExample {
         // 디스패치함.
         Object proxy1 = Proxy.newProxyInstance(
                 classLoader,
+                // 엘리먼트가 Class 클래스 인스턴스인 배열을 만들고 있음...
                 new Class<?>[]{FirstInterface.class, SecondInterface.class},
                 new MyInvocationHandler()
         );
@@ -27,6 +28,7 @@ public class ProxyExample {
         // 프록시 생성 - 인터페이스 순서: SecondInterface, FirstInterface
         Object proxy2 = Proxy.newProxyInstance(
                 classLoader,
+                // 다음 배열 사이즈는 65535를 초과할 수 없음!
                 new Class<?>[]{SecondInterface.class, FirstInterface.class},
                 new MyInvocationHandler()
         );

@@ -7,11 +7,17 @@ import com.intheeast.jdkproxy.util.ProxyInspector;
 public class ProxyDefaultMethodExample {
 	
     public static void main(String[] args) {
-        Greeting greetingProxy = (Greeting) Proxy.newProxyInstance(
-                Greeting.class.getClassLoader(),
-                new Class<?>[]{Greeting.class},
-                new GreetingInvocationHandler()
-        );
+    	Greeting.sayGoodNigth();
+    	
+    	Greeting helloGreeting = new HelloGreeting();
+    	helloGreeting.sayHello();
+    	
+        Greeting greetingProxy = 
+        		(Greeting) Proxy.newProxyInstance(
+	                Greeting.class.getClassLoader(),
+	                new Class<?>[]{Greeting.class},
+	                new GreetingInvocationHandler()
+        		);
         
         ProxyInspector.inspect(greetingProxy);
 
