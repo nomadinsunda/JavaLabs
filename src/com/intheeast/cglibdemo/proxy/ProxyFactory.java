@@ -12,5 +12,4 @@ public class ProxyFactory {
         return (T) enhancer.create();
     }
 
-
 }
