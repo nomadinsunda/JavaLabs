@@ -16,6 +16,7 @@ public class TimeLoggingHandler implements InvocationHandler {
 	     this.target = target;
 	 }
 	 
+	 // 공통 관심사
 	 private ZonedDateTime printZoneDateTime(Method method) {
 		 ZonedDateTime now = ZonedDateTime.now();
          System.out.printf("🕒 [%s] 메서드 호출됨: %s()%n", now, method.getName());
@@ -34,6 +35,7 @@ public class TimeLoggingHandler implements InvocationHandler {
          return result;
      }
 
+	 // 공통 관심사
      private void logToFile(ZonedDateTime time, Method method) {
          try (PrintWriter writer = new PrintWriter(new FileWriter(LOG_FILE, true))) {
              writer.printf("[%s] 호출된 메서드: %s()%n", time, method.getName());

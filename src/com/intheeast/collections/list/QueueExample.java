@@ -25,6 +25,13 @@ public class QueueExample {
 		Queue<Integer> queue = 
 				new LinkedList<>();
 
+		
+		// 아래 스테이트먼트를 수행하는데 대략 9.5 ms(사실 그렇지 않지만) 동안 cpu를 사용함	
+		// ...
+		// ...
+		// ...
+			
+		
         // 큐에 엘리먼트 추가
 		// First In(Push)
         queue.add(1);
@@ -33,8 +40,13 @@ public class QueueExample {
 
         // 큐에서 엘리먼트 제거 및 출력
         // First Out(Pop)
-        System.out.println("Removed with remove(): " + queue.remove()); // 1
-        System.out.println("Removed with poll(): " + queue.poll());     // 2
+        
+        Integer fristElement = queue.remove();
+        System.out.println("Removed with remove(): " + fristElement); // 1
+        
+        Integer secondElement = queue.poll();
+        System.out.println("Removed with poll(): " + secondElement);     // 2
+                
         System.out.println("Removed with remove(): " + queue.remove()); // 3
 
         // 큐가 비어 있는 경우 remove() 메서드 사용 시 예외 발생

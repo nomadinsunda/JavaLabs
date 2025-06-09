@@ -24,8 +24,10 @@ public class TimeLoggingInterceptor implements MethodInterceptor {
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
     	ZonedDateTime now = printZoneDateTime(method);
     	
+    	///////////////////////////////////////////////
         Object result = proxy.invokeSuper(obj, args);
-
+        ///////////////////////////////////////////////
+        
         logToFile(now, method); // 호출 이후 로그 파일 기록
         
         return result;

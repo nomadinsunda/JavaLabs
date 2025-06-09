@@ -3,11 +3,8 @@ package com.intheeast.cglibdemo;
 import java.util.List;
 
 import com.intheeast.cglibdemo.proxy.ProxyFactory;
-import com.intheeast.cglibdemo.service.CalculatorServiceImpl;
-import com.intheeast.cglibdemo.service.GreetingServiceImpl;
-import com.intheeast.cglibdemo.service.MathServiceImpl;
-import com.intheeast.cglibdemo.service.NewsServiceImpl;
-import com.intheeast.cglibdemo.service.WeatherServiceImpl;
+import com.intheeast.cglibdemo.service.*;
+
 
 public class CGLibMain {
 	
@@ -15,29 +12,30 @@ public class CGLibMain {
         printTitle("🚀 CGLib Proxy Demo");
 
         List<ServiceRunner> services = List.of(
-            new ServiceRunner("👋 인사", () -> {
-            	GreetingServiceImpl s = createProxy(GreetingServiceImpl.class);
-                s.sayHello("John");
-            }),
+            new ServiceRunner("👋 인사", 
+            		() -> {
+            				GreetingService s = createProxy(GreetingService.class);
+            				s.sayHello("John");}
+            ),
 
             new ServiceRunner("🧮 덧셈", () -> {
-            	MathServiceImpl s = createProxy(MathServiceImpl.class);
+            	MathService s = createProxy(MathService.class);
                 int result = s.add(10, 20);
                 System.out.println("결과: " + result);
             }),
 
             new ServiceRunner("🌦️ 날씨", () -> {
-            	WeatherServiceImpl s = createProxy(WeatherServiceImpl.class);
+            	WeatherService s = createProxy(WeatherService.class);
                 System.out.println("결과: " + s.getWeather("서울"));
             }),
 
             new ServiceRunner("📰 뉴스", () -> {
-            	NewsServiceImpl s = createProxy(NewsServiceImpl.class);
+            	NewsService s = createProxy(NewsService.class);
                 System.out.println("결과: " + s.getHeadline());
             }),
 
             new ServiceRunner("✖️ 곱셈", () -> {
-            	CalculatorServiceImpl s = createProxy(CalculatorServiceImpl.class);
+            	CalculatorService s = createProxy(CalculatorService.class);
                 System.out.println("결과: " + s.multiply(3.5, 4.2));
             })
         );
