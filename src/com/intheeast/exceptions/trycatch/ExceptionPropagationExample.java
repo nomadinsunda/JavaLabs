@@ -12,9 +12,16 @@ public class ExceptionPropagationExample {
 
     // 예외 핸들러가 있는 메서드
     public static void methodWithExceptionHandler() {
+    	String nullStr = null;
+    	nullStr.charAt(0); // NullPointerException
+    	
+    	int[] arrays = new int[10];
+    	arrays[10] = 0; // indexOutOfBoundsException
+    	
         System.out.println("In methodWithExceptionHandler");
 
         try {
+        	// ArithmeticException가 발생할 거 같아...
         	methodWithoutHandler();
         } catch (ArithmeticException e) {
             System.out.println("Caught ArithmeticException in main: " + e.getMessage());

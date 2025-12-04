@@ -6,7 +6,13 @@ public class Rectangle {
     public int height = 0;
     public Point origin;
 
-    // four constructors
+    public Point getOrigin() {
+		return origin;
+	}
+	public void setOrigin(Point origin) {
+		this.origin = origin;
+	}
+	// four constructors
     public Rectangle() {
     	origin = new Point(0, 0);
     }

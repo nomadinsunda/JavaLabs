@@ -9,6 +9,7 @@ public class ProxyFactory {
         Enhancer enhancer = new Enhancer();
         enhancer.setSuperclass(clazz);
         enhancer.setCallback(new TimeLoggingInterceptor());
+        
         return (T) enhancer.create();
     }
 

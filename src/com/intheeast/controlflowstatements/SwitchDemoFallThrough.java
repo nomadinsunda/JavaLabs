@@ -9,10 +9,10 @@ public class SwitchDemoFallThrough {
         ArrayList<String> futureMonths = 
         		new ArrayList<String>();
         
-        int month = 8;
+        int month = 1;
 
         switch (month) {
-            case 1:  
+            case 1: 
             	futureMonths.add("January");
             case 2:  
             	futureMonths.add("February");
@@ -36,7 +36,7 @@ public class SwitchDemoFallThrough {
             	futureMonths.add("November");
             case 12: 
             	futureMonths.add("December"); 
-            	//break;
+//            	break;
             default:
             	// ....
             	break;

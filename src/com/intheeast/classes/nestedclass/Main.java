@@ -2,7 +2,7 @@ package com.intheeast.classes.nestedclass;
 
 import com.intheeast.classes.nestedclass.DefiningInnerAndStaticClassOuterClass.StaticNestedClass;
 // 동일한 패키지에 있지만, 내부 클래스로 정의된 클래스는 import 키워드를 사용해야 한다.
-//import com.intheeast.classes.nestedclass.OuterClass.InnerClass;
+import com.intheeast.classes.nestedclass.OuterClass.InnerClass;
 
 public class Main {
 	
@@ -44,9 +44,10 @@ public class Main {
         topLevelObject.accessMembers(outerObject);     
 	}
 	
-	/*
+	
 	public static void testInnerClasses() {
-		OuterClass outer = new OuterClass(10);
+//		OuterClass outer = new OuterClass(10);
+		OuterClass outer = new OuterClass();
 
         // 디폴트 생성자를 사용하여 비정적(non-static) 내부 클래스의 인스턴스 생성
 		// OuterClass 외부에서 OuterClass의 non-static nested class를 생성하려면,
@@ -75,11 +76,11 @@ public class Main {
         InnerClass inner3 = outer.createInnerClassInstance(30);
         inner3.innerMethod();
 	}
-	*/
+	
 	public static void main(String[] args) {
-		//Main.testInnerClasses();
+		Main.testInnerClasses();
 		
-		Main.testAllNestedClasses();
+		//Main.testAllNestedClasses();
 		
 	}
 

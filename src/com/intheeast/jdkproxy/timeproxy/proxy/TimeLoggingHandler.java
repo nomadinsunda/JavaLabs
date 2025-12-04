@@ -26,6 +26,8 @@ public class TimeLoggingHandler implements InvocationHandler {
 	 @Override
      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		 
+		 // around advice??
+		 // aspect가 수행하는 동작
 		 ZonedDateTime now = printZoneDateTime(method);
 
          Object result = method.invoke(target, args);

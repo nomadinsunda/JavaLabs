@@ -65,7 +65,9 @@ public class Program {
 		Program.printList(lf);			
 		
 		Program.printList(lo);
-		Program.printList(ls);		
+		Program.printList(ls);	
+		
+		li.size();
 	}
 
 }

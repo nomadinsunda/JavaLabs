@@ -31,6 +31,13 @@ public class BoxDemo {
 	  }
 
 	  public static void main(String[] args) {
+		  
+		  BoxDemo boxDemo = new BoxDemo();
+		  String nameOfBoxDemo = boxDemo.toString();
+		  
+		  Integer num = Integer.valueOf(10);
+		  String what = num.toString();
+		  
 		  // ArrayList 엘리먼트는 Box<Integer>...
 		  // ArrayList의 타입 파라미터의 아규먼트는,
 		  // 파라미터화된 타입인 Box<Integer>를 지정함!
@@ -45,6 +52,20 @@ public class BoxDemo {
 	    BoxDemo.addBox(Integer.valueOf(20), listOfIntegerBoxes);
 	    BoxDemo.addBox(Integer.valueOf(30), listOfIntegerBoxes);
 	    BoxDemo.outputBoxes(listOfIntegerBoxes);
+	    
+	    /*
+	     public interface Converter<U, T> {
+    		T convert(U input);
+		 }
+	     */
+	    // 제너릭 생성자 사용: U → T로 변환
+	    // int parseInt(String) : static method
+        Box<Integer> intBox = new Box<>("123", Integer::parseInt);
+        System.out.println(intBox);
+
+        // 제너릭 생성자 사용: Double → String
+        Box<String> doubleToStringBox = new Box<>(3.14, Object::toString);
+        System.out.println(doubleToStringBox);
 	  }
 
 }

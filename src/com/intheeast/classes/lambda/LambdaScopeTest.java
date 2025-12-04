@@ -17,7 +17,7 @@ public class LambdaScopeTest {
 
             // public abstract void run();
             Runnable r = () -> {
-                // 람다 expression은 메서드 아규먼트를 섀도잉하지 않음
+                // 람다 블럭안에 있는 x, this.x, LambdaScopeTest.this.x 란?
                 System.out.println("x = " + x); // 메서드 아규먼트
                 System.out.println("this.x = " + this.x); // FirstLevel 클래스의 인스턴스 필드
                 System.out.println("LambdaScopeTest.this.x = " + LambdaScopeTest.this.x); // LambdaScopeTest 클래스의 인스턴스 필드

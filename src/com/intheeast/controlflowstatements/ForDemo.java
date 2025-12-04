@@ -15,7 +15,9 @@ public class ForDemo {
                 
         int loopingCount = 0;
         for(;;) {        	
-        	// ...        	
+        	// ...  
+//        	loopingCount++;
+        	System.out.println("2nd Looping count:" + loopingCount);
         	if(loopingCount++ > 10)
         		break;
         }        

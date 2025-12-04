@@ -3,6 +3,7 @@ package com.intheeast.interfaces;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
 
 public class SimpleTimeClient implements TimeClient {
 
@@ -26,7 +27,7 @@ public class SimpleTimeClient implements TimeClient {
     
     // date 정보 : 2025-04-22
     public void setDate(int day, int month, int year) {
-        LocalDate dateToSet = LocalDate.of(day, month, year);
+        LocalDate dateToSet = LocalDate.of(year, month, day);
         LocalTime currentTime = LocalTime.from(dateAndTime);
         dateAndTime = LocalDateTime.of(dateToSet, currentTime);
     }
@@ -48,6 +49,12 @@ public class SimpleTimeClient implements TimeClient {
     
     public static void main(String... args) {
         TimeClient myTimeClient = new SimpleTimeClient();
+        LocalDateTime loc = myTimeClient.getLocalDateTime();
+        int day = loc.getDayOfMonth() + 1;
+        int month = loc.getMonthValue();
+        int year = loc.getYear();
+        
+        myTimeClient.setDate(day, month, year);
         System.out.println(myTimeClient.toString());
     }
 

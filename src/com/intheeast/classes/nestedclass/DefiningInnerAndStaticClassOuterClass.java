@@ -5,7 +5,7 @@ public class DefiningInnerAndStaticClassOuterClass {
 	/*private*/ String outerField = "Outer field";
 	
 	// 다음 필드는 static 제어자가 적용되어 있음...static field
-    static String staticOuterField = "Static outer field";
+    public static String staticOuterField = "Static outer field";
     
 //    public static void accessFieldOfOuterClass() {
 ////    	this.outerField = 0;

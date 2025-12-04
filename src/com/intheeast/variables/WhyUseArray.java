@@ -13,7 +13,7 @@ public class WhyUseArray {
 	}
 	
 	public static void main(String ...args) {
-		
+		// 학생 ID를 의미하는 변수들이 있음
 		int st1Id = 0;
 		int st2Id = 0;
 		int st3Id = 0;
@@ -56,6 +56,7 @@ public class WhyUseArray {
 		st19Id = 19;
 		st20Id = 20;
 		
+		// Class는 A반,,,
 		st1Id = st1Id + 1000;
 		st2Id = st2Id + 1000;
 		st3Id = st3Id + 1000;

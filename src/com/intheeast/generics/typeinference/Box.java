@@ -2,7 +2,16 @@ package com.intheeast.generics.typeinference;
 
 public class Box<T> {
 	
-	private T t;          
+	private T t; 
+	
+	public Box() {}
+	
+	// 제너릭 생성자
+	// 2nd para : int parseInt(String)
+	// Integer convert(String input);
+	public <U> Box(U input, Converter<U, T> converter) {
+        this.t = converter.convert(input);
+    }
 
     public void set(T t) {
         this.t = t;

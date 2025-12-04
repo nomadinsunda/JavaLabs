@@ -2,6 +2,8 @@ package com.intheeast.annotations;
 
 import java.lang.annotation.Documented;
 
+
+
 @Documented
 public @interface ClassPreamble {
 	

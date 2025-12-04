@@ -20,11 +20,13 @@ public class TimeLoggingInterceptor implements MethodInterceptor {
         return now;
 	}
 	
+	// invoke와 등가...
     @Override
     public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
     	ZonedDateTime now = printZoneDateTime(method);
     	
     	///////////////////////////////////////////////
+    	//                   method.invoke(target, args);
         Object result = proxy.invokeSuper(obj, args);
         ///////////////////////////////////////////////
         

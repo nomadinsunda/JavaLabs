@@ -1,4 +1,4 @@
-package com.intheeast.generics.wildcards.relation;
+package com.intheeast.generics.wildcards.wildcardsandsubtyping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,8 +11,7 @@ public class Main {
 		// List<Integer>는 integerList 
 		// 참조 변수의 데이터 타입 : 타입 아규먼트가 Integer인 제너릭 인터페스 구현체
 		//           엘리먼트 데이터 타입이 Integer인 리스트.
-        List<Integer> integerList = 
-        		new ArrayList<>();
+        List<Integer> integerList = new ArrayList<>();
         integerList.add(1);
         integerList.add(2);
         integerList.add(3);
@@ -28,6 +27,7 @@ public class Main {
         // List<? extends Integer> : 파라미터화된 타입
         //      ? extends Integer  : 타입 아규먼트
         List<? extends Integer> intList = integerList;
+        
 
         // Assign intList to List<? extends Number>
         List<? extends Number> numList = intList;  // OK. List<? extends Integer> is a subtype of List<? extends Number>

@@ -7,7 +7,7 @@ public class ComparisonDemo {
         int value2 = 2;
         
         // if 구문이...if
-        // if 키워드 다음에 오는 (조건식)
+        // if 키워드 다음에 오는 (조건식) : true 또는 false 값을 만든다
         // 이 (조건식) expression : 값을 만든다..이 값이 true일때
         // {} < -- block
         // == : 이 연산자의 연산 결과는 true 아니면 false

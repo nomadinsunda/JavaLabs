@@ -1,7 +1,13 @@
 package com.intheeast.generics;
 
-// T를 타입 파라미터라고
-public class Box<T> {
+// Box 클래스를 제너릭 클래스
+// T를 제너릭 '타입 파라미터'라고
+// 타입 파라미터는 알파벳 대문자 하나로 정의
+// T, E, S...
+// Box<String> box = new Box<String>();
+// Box<Person> box = new Box<Person>();
+public class Box<T> { // T의 타입 파라미터의 타입 아규먼트로 String 클래스로 지정하면,
+	                  // 클래스 내부의 타입 변수 T는 "컴파일 타임"때만 String으로 대체됨
 	
 	private T t; // object를 타입 변수
 
@@ -11,6 +17,12 @@ public class Box<T> {
     public <U extends Number> void inspect(U u){
         System.out.println("T: " + t.getClass().getName());
         System.out.println("U: " + u.getClass().getName());
+    }
+    
+    
+    public static <K, V> boolean compare(Pair<K, V> p1, Pair<K, V> p2) {
+        return p1.getKey().equals(p2.getKey()) &&
+               p1.getValue().equals(p2.getValue());
     }
     
     public static void main(String[] args) {

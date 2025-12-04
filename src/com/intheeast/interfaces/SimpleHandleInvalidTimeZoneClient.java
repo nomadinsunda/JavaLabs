@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 public class SimpleHandleInvalidTimeZoneClient implements HandleInvalidTimeZoneClient {
 
@@ -44,16 +45,19 @@ public class SimpleHandleInvalidTimeZoneClient implements HandleInvalidTimeZoneC
     }
     
     public static void main(String ...args) {
+    	// HandleInvalidTimeZoneClient hizc = 
     	SimpleHandleInvalidTimeZoneClient shitzc = 
     			new SimpleHandleInvalidTimeZoneClient();
+    	
+    	ZonedDateTime zdt = shitzc.getZonedDateTime("Asia/Tokyo");
     	
     	ZoneId zid;
     	
 //    	shitzc.getZonedDateTime("JST");
     	
     	// 상속받은 인터페이스에서는 부모 인터페이스의 static 메서드를 호출할 수 없음
-    	// HandleInvalidTimeZoneClient.getZoneId("Asia/Tokyo");
-    	zid = TimeClient.getZoneId("Asia/Daegu");
+//    	 HandleInvalidTimeZoneClient.getZoneId("Asia/Tokyo");
+//    	zid = TimeClient.getZoneId("Asia/Daegu");
     	
     	return ;
     }

@@ -26,21 +26,24 @@ public class CoffeesTableExample {
         String username = "root";
         String password = "1234";
 
+        // DataSource : JDBC API(Extended Version)
         try (Connection con = 
         		DriverManager.getConnection(jdbcURL, username, password)) {
             System.out.println("데이터베이스 연결 성공!");
 
             // 1. COFFEES 테이블이 없으면 생성
-            createCoffeesTableIfNotExists(con);
+            //createCoffeesTableIfNotExists(con);
 
             // 2. COFFEES 테이블 데이터가 없으면 샘플 데이터 삽입
-            insertSampleDataIfNotExists(con);
+            //insertSampleDataIfNotExists(con);
 
             // 3. 테이블 조회
-            viewTable(con);
+            //viewTable(con);
 
         } catch (SQLException e) {
             printSQLException(e);
+        } finally {
+        	// ...
         }
     }
 

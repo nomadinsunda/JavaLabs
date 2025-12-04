@@ -1,5 +1,6 @@
 package com.intheeast.exceptions.puttingitalltogether;
 
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -21,21 +22,37 @@ public class ListOfNumbers {
 
     // 주어진 writeList 메서드
     @SuppressWarnings("unused")
-	public void writeList() throws IOException, IndexOutOfBoundsException {
+	public void writeList() /*throws IOException, IndexOutOfBoundsException*/ {
+    	String fileName = "OutFile.txt";
         PrintWriter out = null;        
         System.out.println("Entering try statement");
-
-        out = new PrintWriter(new FileWriter("OutFile.txt"));
+        int i = 0;
         
-        for (int i = 0; i < SIZE; i++) {
-            out.println("Value at: " + i + " = " + list.get(i));
-        }
+        FileNotFoundException ffe;
+        
+        try {
+        	out = new PrintWriter(new FileWriter(fileName));
+        
+            for (; i < SIZE; i++) {
+        		Integer elem = 0;        	
+        		elem = list.get(i);        	
+        		out.println("Value at: " + i + " = " + elem);
+        	}
        
-        if (out != null) {
-            System.out.println("Closing PrintWriter");
-            out.close();
-        } else {
-            System.out.println("PrintWriter not open");
+        	if (out != null) {
+        		System.out.println("Closing PrintWriter");
+        		out.close();
+        	} else {
+        		System.out.println("PrintWriter not open");
+        	}        
+        } catch(IOException e) {
+    		System.out.println(fileName + " is WRONG File Name " + e.getMessage());        	
+        } catch(NullPointerException e) {
+        
+        } catch(IndexOutOfBoundsException e) {
+    		System.out.println(i + " is WRONG index " + e.getMessage());        	
+        } finally {
+        	// ...
         }
         
     }
@@ -52,10 +69,10 @@ public class ListOfNumbers {
 //        System.out.println("main return...");
 //    }
     
-    public static void main(String[] args) throws IndexOutOfBoundsException, IOException {
-        ListOfNumbers lon = new ListOfNumbers();
-		lon.writeList();
-		
+    public static void main(String[] args) /*throws IndexOutOfBoundsException, IOException*/ {
+        ListOfNumbers lon = new ListOfNumbers();        
+        
+        lon.writeList();		
 
         System.out.println("main return...");
     }

@@ -73,7 +73,9 @@ public class StringSwitchDemo {
 
     public static void main(String[] args) {
 
-        String month = "August";
+    	// 다음과 같이 스트링 리터럴을 대입연산자의 오른쪽 값으로 지정해서
+    	// "August"라는 문자열을 가지고 있는 String 클래스 객체를 많듦.
+        String month = "AUGUST"; // new String("August");
 
         int returnedMonthNumber =
             StringSwitchDemo.getMonthNumber(month);

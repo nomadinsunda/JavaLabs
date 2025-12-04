@@ -47,6 +47,18 @@ public class Main {
             })
         );
 
+        /*
+         (t) -> {
+            System.out.printf("▶ %s 서비스 실행 중...\n", title);
+            try {
+                t.run();
+            } catch (Exception e) {
+                System.out.println("❌ 오류 발생: " + e.getMessage());
+            }
+            System.out.println();
+          } 
+         
+         */
         services.forEach(ServiceRunner::run);
 
         printFooter("✅ 모든 서비스 실행 완료");

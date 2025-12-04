@@ -6,19 +6,20 @@ import java.util.List;
 public class WildcardErrorBad {
 	
 	public static void swapFirst(List<? extends Number> l1, List<? extends Number> l2) {
+		Integer num;
+		// 1st para: List<? extends Number> l1 -> List<Capture#1-of ? extends Number> l1
+		// 2nd para: List<? extends Number> l2 -> List<Capture#2-of ? extends Number> l2
 		
-	    Number temp = l1.get(0); // l1.get(0)이 리턴하는 것이
-	                             // capture#1-of ? extends Number
+	    Number temp = l1.get(0); 
 	    
-	    // l1의 method set(int, capture#2-of ? extends Number) 
-	    // is not applicable 
-	    // for the arguments (int, capture#3-of ? extends Number)
-	    // l2.get(0)이 리턴하는 것이 capture#3-of ? extends Number 임으로
-	    // 안됨!
+	    // l1.set(int, capture#2-of ? extends Number)
+	    // 2nd para의 아규먼트로 전달되는 l2.get의 리턴 값 데이터 타입은 capture#3-of ? extends Number임
+	    // 그래서 파라미터 정의와 해당 파라미터의 아규먼트의 타입 불일치로 컴파일러 에러
 //	    l1.set(0, l2.get(0));
 	    
-	    // l2의 method set(int, capture#4-of ? extends Number) 
-	    // is not applicable for the arguments (int, Number)
+	    // l2.set(int, capture#4-of ? extends Number) 임
+	    // 2nd para의 아규먼트로 전달되는 temp의 데이터 타입은 Number임
+	    // 그래서 파라미터 정의와 해당 파라미터의 아규먼트의 타입 불일치로 컴파일러 에러.
 //	    l2.set(0, temp);
 	                            
 	}

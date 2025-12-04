@@ -3,7 +3,7 @@ package com.intheeast.classes;
 // 디폴트로 extends Object가 적용되어 있음.
 // explicit, implicit
 // extends 키워드 : 상속[inheritance]
-public class Bicycle extends Object{
+public class Bicycle /*extends Object*/{
 	
 	private int cadence;
 	private int gear;
@@ -14,6 +14,11 @@ public class Bicycle extends Object{
 	// 모든 Bicycle 클래스 객체의 인스턴스들에게 공유됨
 	private static int numberOfBicycles = 0;
 	
+	static {
+//		numberOfBicycles = 0;
+	}
+	
+	// 초기화 블록...각 컨스트럭터들에게 공유되는 코드들을 작성할 때 사용함.
 	{
 		cadence = 0;
 		gear = 0;
@@ -27,6 +32,9 @@ public class Bicycle extends Object{
 	
 	public Bicycle(int cadence, int gear, int speed) {
 		super(); // Object 클래스의 디폴트 컨스트럭터를 호출
+		
+		
+		
 		this.cadence = cadence;
 		this.gear = gear;
 		this.speed = speed;
@@ -76,6 +84,8 @@ public class Bicycle extends Object{
     }
 	
 	public static int getNumberOfBicycles() {
+//		int value = id;
+//		getID();
         return Bicycle.numberOfBicycles;
     }
 

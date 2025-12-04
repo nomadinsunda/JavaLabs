@@ -22,8 +22,16 @@ public class FileReadFinallyExample {
             return br.readLine();
         } finally {
             // 리소스 해제는 finally에서 반드시 수행
-            br.close();
-            fr.close();
+            br.close(); // IOException이 발생되면,FileReader가 close가 되지 않음.
+            fr.close(); 
+        }
+    }
+    
+    static String readFirstLineFromFileWithTryWithResourceBlock(String path) throws IOException {
+       
+        try (FileReader fr = new FileReader(path);
+                BufferedReader br = new BufferedReader(fr)){
+            return br.readLine();
         }
     }
 

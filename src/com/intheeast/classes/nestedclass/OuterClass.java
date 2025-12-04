@@ -4,6 +4,8 @@ public class OuterClass {
 	private int outerField;
     private InnerClass innerClassInstance; // InnerClass 객체 참조 변수
 
+    public OuterClass() {}
+    
     public OuterClass(int outerField) {
         this.outerField = outerField;
         this.innerClassInstance = new InnerClass(); // 디폴트 생성자로 초기화

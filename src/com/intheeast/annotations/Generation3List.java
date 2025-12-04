@@ -9,6 +9,8 @@ import static java.lang.annotation.ElementType.PARAMETER;
 import static java.lang.annotation.ElementType.TYPE;
 
 import java.lang.annotation.Target;
+import java.util.ArrayList;
+import java.util.List;
 
 @ClassPreamble (
    author = "John Doe",
@@ -47,5 +49,16 @@ public class Generation3List {
 //	public void world(@NonNull String world) {
 //		
 //	}
+	
+	/**
+	 * 이 메서드는 xxxx 입니다.
+	 */
+	@SuppressWarnings("removal")
+	public static void suppressDeprecated() {
+		// The constructor Integer(int) has been deprecated since version 9 and marked for removal
+		Integer num = new Integer(3);
+		
+		List<String> lists = new ArrayList<>();
+	}
 
 }

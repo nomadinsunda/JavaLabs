@@ -2,7 +2,16 @@ package com.intheeast.controlflowstatements;
 
 public class WhileDemo {
 	
+	public static void testWhileBlock() {
+		
+		while(true) {
+			System.out.println("Looping...");
+		}
+	}
+	
 	public static void main(String[] args){
+//		testWhileBlock();
+		
         int loopingCount = 1; // for 구문에서 int i =1;
         
         // while(expression)의 조건식이 true이면
