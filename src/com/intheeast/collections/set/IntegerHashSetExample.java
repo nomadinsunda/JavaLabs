@@ -1,10 +1,42 @@
 package com.intheeast.collections.set;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class IntegerHashSetExample {
+	public static void stringValue() {
+		Set<String> strSet = new HashSet<>();
+		
+		strSet.add("A");
+		strSet.add("B");
+		strSet.add("C");
+		strSet.add("D");
+		strSet.add("E");
+		
+		Iterator<String> itr = strSet.iterator();
+		int eleNumbers = strSet.size();
+		int loopCount = 0;
+		while(itr.hasNext()) {
+			String temp = itr.next();
+			loopCount++;
+			
+			if(loopCount == eleNumbers) {
+				itr.hasNext();
+			}			
+		}
+		
+		boolean isOk = strSet.contains("A");
+		
+		for ( String str : strSet) {
+			String temp = str;
+		}
+		
+	}
     public static void main(String[] args) {
+    	
+    	stringValue();
+    	
         Set<Integer> integerSet = new HashSet<>();
 
         // Hash Table의 사이즈가 늘린다?

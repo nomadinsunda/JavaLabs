@@ -20,11 +20,13 @@ import java.sql.*;
  */
 public class CoffeesTableExample {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ClassNotFoundException {
         String jdbcURL = 
         		"jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC";
         String username = "root";
         String password = "1234";
+        
+        //Class.forName("com.mysql.cj.jdbc.Driver");
 
         // DataSource : JDBC API(Extended Version)
         try (Connection con = 
@@ -32,13 +34,13 @@ public class CoffeesTableExample {
             System.out.println("데이터베이스 연결 성공!");
 
             // 1. COFFEES 테이블이 없으면 생성
-            //createCoffeesTableIfNotExists(con);
+            createCoffeesTableIfNotExists(con);
 
             // 2. COFFEES 테이블 데이터가 없으면 샘플 데이터 삽입
-            //insertSampleDataIfNotExists(con);
+            insertSampleDataIfNotExists(con);
 
             // 3. 테이블 조회
-            //viewTable(con);
+            viewTable(con);
 
         } catch (SQLException e) {
             printSQLException(e);
@@ -96,9 +98,9 @@ public class CoffeesTableExample {
                 System.out.println("이미 데이터가 존재합니다 (삽입 생략)");
             }
         } 
-//        catch (SQLException e) {
-//        	System.out.println("SQLException:" + e.getMessage());
-//        }
+        catch (SQLException e) {
+        	System.out.println("SQLException:" + e.getMessage());
+        }
     }
 
     // COFFEES 테이블 조회
@@ -106,7 +108,7 @@ public class CoffeesTableExample {
         String query = "SELECT COF_NAME, SUP_ID, PRICE, SALES, TOTAL FROM COFFEES";
 
         try (Statement stmt = con.createStatement()) {
-            ResultSet rs = stmt.executeQuery(query);
+            ResultSet rs = stmt.executeQuery(query);            
 
             System.out.println("=== COFFEES 테이블 ===");
             while (rs.next()) {
@@ -119,6 +121,9 @@ public class CoffeesTableExample {
                 System.out.println(coffeeName + ", " + supplierID + ", " +
                                    price + ", " + sales + ", " + total);
             }
+            
+//            stmt.close();
+//            rs.close();
         } catch (SQLException e) {
             printSQLException(e);
         }
